@@ -11,7 +11,7 @@ import SwiftUI
 struct MobileShowcaseApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TableOfContents()
         }
     }
 }
