@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6CE45ECF2CA5CFE300D401DB /* Layout in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE45ECE2CA5CFE300D401DB /* Layout */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6C5BC8D92CA5A837009D3E83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE45ECF2CA5CFE300D401DB /* Layout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,7 @@
 				6C5BC8CA2CA5A835009D3E83 /* MobileShowcase */,
 				6C5BC8DB2CA5A837009D3E83 /* MobileShowcaseTests */,
 				6C5BC8E52CA5A837009D3E83 /* MobileShowcaseUITests */,
+				6CE45ECD2CA5CFE300D401DB /* Frameworks */,
 				6C5BC8C92CA5A835009D3E83 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +109,13 @@
 				6C5BC8E22CA5A837009D3E83 /* MobileShowcaseUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6CE45ECD2CA5CFE300D401DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +138,7 @@
 			);
 			name = MobileShowcase;
 			packageProductDependencies = (
+				6CE45ECE2CA5CFE300D401DB /* Layout */,
 			);
 			productName = MobileShowcase;
 			productReference = 6C5BC8C82CA5A835009D3E83 /* MobileShowcase.app */;
@@ -579,6 +593,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6CE45ECE2CA5CFE300D401DB /* Layout */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Layout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6C5BC8C02CA5A835009D3E83 /* Project object */;
 }

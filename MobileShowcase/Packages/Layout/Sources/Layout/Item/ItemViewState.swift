@@ -5,6 +5,10 @@ public protocol ItemViewState: Identifiable {
 
 extension ItemViewState where Self: Equatable {
     public func equals(_ state: Self) -> Bool {
-        self == state
+        return self == state
     }
+}
+
+public func ==<T: ItemViewState>(lhs: T, rhs: T) -> Bool {
+    return lhs.equals(rhs)
 }
