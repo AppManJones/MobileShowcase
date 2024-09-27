@@ -3,11 +3,11 @@ import SwiftUI
 public
 struct MenuItem: LayoutItem {
     let action: ItemAction
-    public let viewState: MenuItemState
+    public let viewState: MenuItemViewState
     
     public init(
         action: @escaping ItemAction,
-        viewState: MenuItemState
+        viewState: MenuItemViewState
     ) {
         self.action = action
         self.viewState = viewState
@@ -26,7 +26,7 @@ struct MenuItem: LayoutItem {
 }
 
 public
-struct MenuItemState: ItemViewState, Equatable {
+struct MenuItemViewState: ItemViewState, Equatable {
     let event: Any
     public let id: AnyHashable
     let title: String

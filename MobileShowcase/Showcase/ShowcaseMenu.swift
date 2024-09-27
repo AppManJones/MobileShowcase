@@ -10,7 +10,6 @@ struct ShowcaseMenu: View {
     @StateObject
     public var viewModel: ShowcaseMenuViewModel
     
-    
     init(
         viewModel: ShowcaseMenuViewModel = ShowcaseMenuViewModel()
     ) {

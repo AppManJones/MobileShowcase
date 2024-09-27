@@ -6,7 +6,7 @@ public class LayoutSystemViewFactor: @preconcurrency ItemViewFactory {
     @ViewBuilder
     public func build(_ viewState: any ItemViewState, action: @escaping ItemAction) -> some View {
         switch viewState {
-        case let state as MenuItemState:
+        case let state as MenuItemViewState:
             MenuItem(action: action, viewState: state)
         case let state as ListSectionViewState:
             ListSection(viewState: state, itemFactory: self, action: action)

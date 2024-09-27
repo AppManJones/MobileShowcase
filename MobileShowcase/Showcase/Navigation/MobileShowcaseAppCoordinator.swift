@@ -1,22 +1,13 @@
 import Architecture
 import SwiftUI
 
-enum ASheet: Identifiable, Hashable {
-    case none
-    var id: Self { return self }
-}
-
-enum AFullScreenCover: Identifiable, Hashable {
-    case none
-    var id: Self { return self }
-}
-
+final
 class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
     
     typealias NavigationEvent = ShowcaseNavigationEvent
     typealias Screen = ShowcaseScreen
-    typealias Sheet = ASheet
-    typealias FullScreenCover = AFullScreenCover
+    typealias Sheet = ShowcaseSheet
+    typealias FullScreenCover = ShowcaseFullScreenCover
     
     @Published var path: NavigationPath = NavigationPath()
     @Published var sheet: Sheet?
