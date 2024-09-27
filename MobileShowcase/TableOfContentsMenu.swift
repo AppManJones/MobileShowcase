@@ -1,3 +1,0 @@
-enum TableOfContentsMenu {
-    case root
-}

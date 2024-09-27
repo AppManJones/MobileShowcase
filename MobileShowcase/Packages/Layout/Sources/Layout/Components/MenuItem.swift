@@ -1,19 +1,19 @@
-import Layout
 import SwiftUI
 
-struct TableOfContentsItem: LayoutItem {
+public
+struct MenuItem: LayoutItem {
     let action: ItemAction
-    let viewState: TableOfContentsItemState
+    public let viewState: MenuItemState
     
-    init(
+    public init(
         action: @escaping ItemAction,
-        viewState: TableOfContentsItemState
+        viewState: MenuItemState
     ) {
         self.action = action
         self.viewState = viewState
     }
     
-    var body: some View {
+    public var body: some View {
         HStack {
             Text(viewState.title)
             Spacer()
@@ -25,13 +25,14 @@ struct TableOfContentsItem: LayoutItem {
     }
 }
 
-struct TableOfContentsItemState: ItemViewState, Equatable {
-    let event: TableOfContentsNavigationEvent
-    let id: AnyHashable
+public
+struct MenuItemState: ItemViewState, Equatable {
+    let event: Any
+    public let id: AnyHashable
     let title: String
     
-    init(
-        event: TableOfContentsNavigationEvent,
+    public init(
+        event: Any,
         id: AnyHashable,
         title: String
     ) {

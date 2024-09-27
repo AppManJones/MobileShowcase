@@ -1,13 +1,13 @@
-import Layout
 import SwiftUI
 
-struct TableOfContentsSection<ViewFactory: ItemViewFactory>: LayoutItem {
-    let viewState: TableOfContentsSectionState
+public
+struct ListSection<ViewFactory: ItemViewFactory>: LayoutItem {
+    public let viewState: ListSectionViewState
     let itemFactory: ViewFactory
     let action: ItemAction
     
-    init(
-        viewState: TableOfContentsSectionState,
+    public init(
+        viewState: ListSectionViewState,
         itemFactory: ViewFactory,
         action: @escaping ItemAction
     ) {
@@ -16,7 +16,7 @@ struct TableOfContentsSection<ViewFactory: ItemViewFactory>: LayoutItem {
         self.action = action
     }
     
-    var body: some View {
+    public var body: some View {
         Section(header: Text(viewState.title)) {
             ForEach(viewState.itemStore.items) { anyItem in
                 itemFactory.build(anyItem.viewState, action: action)
@@ -25,12 +25,13 @@ struct TableOfContentsSection<ViewFactory: ItemViewFactory>: LayoutItem {
     }
 }
 
-struct TableOfContentsSectionState: ItemViewState, Equatable {
+public
+struct ListSectionViewState: ItemViewState, Equatable {
     let itemStore: ItemStore
     let title: String
-    let id: AnyHashable
+    public let id: AnyHashable
     
-    init(
+    public init(
         itemStore: ItemStore,
         title: String,
         id: AnyHashable

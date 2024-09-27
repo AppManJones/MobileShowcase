@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6CE45ECF2CA5CFE300D401DB /* Layout in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE45ECE2CA5CFE300D401DB /* Layout */; };
+		6CE45EDF2CA669EA00D401DB /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE45EDE2CA669EA00D401DB /* Architecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		6C492EEF2CA5BF8100E0F271 /* Exceptions for "MobileShowcase" folder in "MobileShowcase" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Packages/Architecture,
 				Packages/Layout,
 			);
 			target = 6C5BC8C72CA5A835009D3E83 /* MobileShowcase */;
@@ -70,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE45ECF2CA5CFE300D401DB /* Layout in Frameworks */,
+				6CE45EDF2CA669EA00D401DB /* Architecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +142,7 @@
 			name = MobileShowcase;
 			packageProductDependencies = (
 				6CE45ECE2CA5CFE300D401DB /* Layout */,
+				6CE45EDE2CA669EA00D401DB /* Architecture */,
 			);
 			productName = MobileShowcase;
 			productReference = 6C5BC8C82CA5A835009D3E83 /* MobileShowcase.app */;
@@ -598,6 +602,10 @@
 		6CE45ECE2CA5CFE300D401DB /* Layout */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Layout;
+		};
+		6CE45EDE2CA669EA00D401DB /* Architecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Architecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
