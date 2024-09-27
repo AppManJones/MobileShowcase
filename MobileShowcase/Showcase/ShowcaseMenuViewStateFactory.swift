@@ -24,7 +24,7 @@ struct ShowcaseMenuViewStateFactory {
             section(
                 "mobile_showcase_effects",
                 item(.showScreen(.demo(.particleEffect)), 0, "Particle Effect"),
-                item(.none, 1, "Other")),
+                item(.showScreen(.demo(.underConstruction)), 1, "Other")),
         ]
     }
     

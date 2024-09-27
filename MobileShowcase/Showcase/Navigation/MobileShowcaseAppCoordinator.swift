@@ -30,8 +30,8 @@ class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
         switch screen {
         case .menu(let menuType):
             ShowcaseMenu(viewModel: ShowcaseMenuViewModel(menuType: menuType))
-        case .demo:
-            EmptyView()
+        case .demo(let demoType):
+            ShowcaseDemoViewFactory().build(for: demoType)
         }
     }
     
