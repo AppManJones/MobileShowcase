@@ -5,7 +5,7 @@ struct ShowcaseDemoViewFactory {
     func build(for demoType: DemoType) -> some View {
         switch demoType {
         case .particleEffect:
-            ParticleEffectDemoView()
+            UnderConstructionView()
         case .underConstruction:
             UnderConstructionView()
         }
