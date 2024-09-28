@@ -55,13 +55,11 @@ Each demo is derived from a blog post or article that inspired the implementatio
    - Demonstrates custom particle effects using SwiftUI transitions.
    - **Inspired by**: [objc.io - Swift Talk # 418](https://talk.objc.io/episodes/S01E418-particle-effects-part-1)
 
-_(Add more demos as necessary.)_
-
 ## Requirements
 
-- iOS 14.0+ / iPadOS 14.0+
-- Xcode 12.0+
-- Swift 5.3+
+- iOS 16.0+ / iPadOS 16.0+
+- Xcode 16.0+
+- Swift 6.0+
 
 ## Installation
 
