@@ -15,7 +15,7 @@ struct LayoutButton<Content: View>: View {
         image: Image? = nil,
         style: LayoutButtonStyle,
         action: @escaping () -> Void,
-        imageModifier: ((Image) -> Content)? = nil  // Optional modifier
+        imageModifier: ((Image) -> Content)? = nil
     ) {
         self.title = title
         self.image = image
