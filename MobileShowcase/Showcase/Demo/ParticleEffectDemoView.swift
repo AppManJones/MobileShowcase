@@ -8,17 +8,19 @@ struct ParticleEffectDemoView: View {
             Spacer()
             Text("Particle Effect")
                 .foregroundStyle(.white)
-            LayoutButton(
-                title: "Press",
-                image: Image(systemName: "star.fill"),
-                style: .secondary,
-                action: didTap,
-                imageModifier: { image in
-                    image.sprayEffect(trigger: trigger)
-                }
-            )
-            .contentShape(.rect)
-            .padding()
+            ForEach(0..<10) { _ in
+                LayoutButton(
+                    title: "Press",
+                    image: Image(systemName: "star.fill"),
+                    style: .secondary,
+                    action: didTap,
+                    imageModifier: { image in
+                        image.sprayEffect(trigger: trigger)
+                    }
+                )
+                .contentShape(.rect)
+                .padding()
+            }
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

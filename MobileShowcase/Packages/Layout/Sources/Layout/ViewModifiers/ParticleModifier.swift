@@ -91,16 +91,50 @@ struct ParticleModifier<Trigger: Hashable>: ViewModifier {
     }
 }
 
+struct SprayEffectModifier<T: Equatable>: ViewModifier {
+
+    var trigger: T
+    var numberOfParticles = 30
+    var duration: TimeInterval = 0.5
+    
+    @State private var startData: Date? = nil
+    @State private var angles: [Angle] = []
+    
+    func body(content: Content) -> some View {
+        TimelineView(.animation(paused: startData == nil)) { timelineContext in
+            Canvas { context, size in
+                guard let startData else { return }
+                let diff = timelineContext.date.timeIntervalSince(startData)
+                let symbol = context.resolveSymbol(id: "particle")!
+                context.translateBy(x: size.width / 2 , y: size.height / 2)
+                
+                let progress = diff / duration
+                guard progress < 1 else { return }
+                context.opacity = 1 - progress
+                
+                for angle in angles {
+                    let x = cos(angle.radians) * 50 * diff
+                    let y = sin(angle.radians) * 50 * diff
+                    let offset = CGPoint(x: x, y: y)
+                    context.draw(symbol, at: offset)
+                }
+            } symbols: {
+                content.tag("particle")
+            }
+                .frame(width: 200, height: 200)
+        }
+        .onChange(of: trigger) {
+            startData = .now
+            angles = (0..<numberOfParticles).map { _ in .degrees(.random(in: 0..<360)) }
+        }
+    }
+}
+
 public
 extension View {
     func sprayEffect<Trigger: Hashable>(trigger: Trigger) -> some View {
         self.background(
-            ZStack {
-                ForEach(0..<30) { _ in
-                    self
-                        .modifier(ParticleModifier(trigger: trigger))
-                }
-            }
+            self.modifier(SprayEffectModifier(trigger: trigger))
         )
     }
 }
