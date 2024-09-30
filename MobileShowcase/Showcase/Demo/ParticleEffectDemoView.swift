@@ -17,6 +17,7 @@ struct ParticleEffectDemoView: View {
                     image.sprayEffect(trigger: trigger)
                 }
             )
+            .contentShape(.rect)
             .padding()
             Spacer()
         }
@@ -30,4 +31,8 @@ private extension ParticleEffectDemoView {
     func didTap() {
         trigger += 1
     }
+}
+
+#Preview {
+    ParticleEffectDemoView()
 }
