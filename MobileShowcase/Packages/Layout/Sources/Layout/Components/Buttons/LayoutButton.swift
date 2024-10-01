@@ -1,12 +1,11 @@
 import SwiftUI
 
 public
-struct LayoutButton<Content: View>: View {
+struct LayoutButton: View {
     var title: String?
     var image: Image?
     var style: LayoutButtonStyle
     var action: () -> Void
-    var imageModifier: ((Image) -> Content)?
 
     private let padding: CGFloat = 12.0
 
@@ -14,28 +13,22 @@ struct LayoutButton<Content: View>: View {
         title: String? = nil,
         image: Image? = nil,
         style: LayoutButtonStyle,
-        action: @escaping () -> Void,
-        imageModifier: ((Image) -> Content)? = nil
+        action: @escaping () -> Void
     ) {
         self.title = title
         self.image = image
         self.style = style
         self.action = action
-        self.imageModifier = imageModifier
     }
     
     @ViewBuilder
     public var body: some View {
         Button(action: action) {
             HStack {
-                if let image = image {
-                    if let imageModifier = imageModifier {
-                        imageModifier(image)
-                    } else {
-                        image
-                    }
+                if let image {
+                    image
                 }
-                if let title = title {
+                if let title {
                     Text(title)
                 }
             }
