@@ -8,19 +8,14 @@ struct ParticleEffectDemoView: View {
             Spacer()
             Text("Particle Effect")
                 .foregroundStyle(.white)
-            ForEach(0..<10) { _ in
-                LayoutButton(
-                    title: "Press",
-                    image: Image(systemName: "star.fill"),
-                    style: .secondary,
-                    action: didTap,
-                    imageModifier: { image in
-                        image.sprayEffect(trigger: trigger)
-                    }
-                )
-                .contentShape(.rect)
-                .padding()
-            }
+
+            LayoutIconButton(
+                image: Image(systemName: "star.fill")
+                    .sprayEffect(trigger: trigger),
+                action: didTap
+            )
+            .padding()
+
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -33,8 +28,4 @@ private extension ParticleEffectDemoView {
     func didTap() {
         trigger += 1
     }
-}
-
-#Preview {
-    ParticleEffectDemoView()
 }
