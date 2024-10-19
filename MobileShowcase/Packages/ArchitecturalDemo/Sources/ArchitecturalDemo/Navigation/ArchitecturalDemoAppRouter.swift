@@ -23,9 +23,9 @@ class ArchitecturalDemoAppRouter: AppRouterProtocol {
     @ViewBuilder
     func build(_ screen: SampleScreen) -> some View {
         switch screen {
-        case .menu:
+        case .pageOne:
             EmptyView()
-        case .demo:
+        case .pageTwo:
             EmptyView()
         }
     }

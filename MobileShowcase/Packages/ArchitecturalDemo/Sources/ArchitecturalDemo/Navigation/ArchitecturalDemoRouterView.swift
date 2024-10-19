@@ -14,7 +14,7 @@ struct ArchitecturalDemoRouterView<Coordinator: AppRouterProtocol>: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            router.build(.menu)
+            router.build(.pageOne)
                 .navigationDestination(for: ArchitecturalDemoAppRouter.Screen.self) { screen in
                     router.build(screen)
                         .environmentObject(router)
