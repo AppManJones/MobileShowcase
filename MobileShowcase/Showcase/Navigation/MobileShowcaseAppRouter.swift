@@ -1,7 +1,7 @@
 import Architecture
 import SwiftUI
 
-final class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
+final class MobileShowcaseAppRouter: AppRouterProtocol {
 
     @Published var path: NavigationPath = NavigationPath()
     @Published var sheet: ShowcaseScreen?
@@ -47,7 +47,7 @@ final class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
 }
 
 private
-extension MobileShowcaseAppCoordinator {
+extension MobileShowcaseAppRouter {
     func push(_ screen: ShowcaseScreen) {
         path.append(screen)
     }

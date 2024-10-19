@@ -4,10 +4,10 @@ import SwiftUI
 struct CoordinatorView: View {
     
     @StateObject
-    public var appCoordinator: MobileShowcaseAppCoordinator
+    public var appCoordinator: MobileShowcaseAppRouter
     
     init(
-        appCoordinator: MobileShowcaseAppCoordinator = MobileShowcaseAppCoordinator()
+        appCoordinator: MobileShowcaseAppRouter = MobileShowcaseAppRouter()
     ) {
         _appCoordinator = StateObject(wrappedValue: appCoordinator)
     }
@@ -15,7 +15,7 @@ struct CoordinatorView: View {
     var body: some View {
         NavigationStack(path: $appCoordinator.path) {
             appCoordinator.build(.menu(.root))
-                .navigationDestination(for: MobileShowcaseAppCoordinator.Screen.self) { screen in
+                .navigationDestination(for: MobileShowcaseAppRouter.Screen.self) { screen in
                     appCoordinator.build(screen)
                 }
                 .sheet(item: $appCoordinator.sheet) { sheet in

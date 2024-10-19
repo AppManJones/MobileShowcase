@@ -1,14 +1,7 @@
 import SwiftUI
 
 public
-protocol ScreenProtocol: Equatable, Hashable, Identifiable {
-    associatedtype Identifier: Hashable
-    var id: Identifier { get }
-    
-}
-
-public
-protocol AppCoordinatorProtocol: ObservableObject {
+protocol AppRouterProtocol: ObservableObject {
     
     associatedtype NavigationEvent: Equatable
     associatedtype Screen: ScreenProtocol

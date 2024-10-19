@@ -5,7 +5,7 @@ import SwiftUI
 struct ShowcaseMenu: View {
 
     @EnvironmentObject
-    var appCoordinator: MobileShowcaseAppCoordinator
+    var appCoordinator: MobileShowcaseAppRouter
     
     @StateObject
     public var viewModel: ShowcaseMenuViewModel
