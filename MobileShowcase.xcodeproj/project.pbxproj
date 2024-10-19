@@ -38,6 +38,7 @@
 		6C492EEF2CA5BF8100E0F271 /* Exceptions for "MobileShowcase" folder in "MobileShowcase" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Packages/ArchitecturalDemo,
 				Packages/Architecture,
 				Packages/Layout,
 			);
