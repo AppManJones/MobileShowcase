@@ -1,32 +1,26 @@
 import Architecture
 import SwiftUI
 
-final
-class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
-    
-    typealias NavigationEvent = ShowcaseNavigationEvent
-    typealias Screen = ShowcaseScreen
-    typealias Sheet = ShowcaseSheet
-    typealias FullScreenCover = ShowcaseFullScreenCover
-    
+final class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
+
     @Published var path: NavigationPath = NavigationPath()
-    @Published var sheet: Sheet?
-    @Published var fullScreenCover: FullScreenCover?
-    
+    @Published var sheet: ShowcaseScreen?
+    @Published var fullScreenCover: ShowcaseScreen?
+
     func handle(_ event: ShowcaseNavigationEvent) {
         switch event {
-        case .showScreen(let menuType):
-            push(menuType)
-        case .showSheet(_):
-            presentSheet(.none)
-        case .showFullScreenCover(_):
-            presentFullScreenCover(.none)
+        case .showScreen(let screen):
+            push(screen)
+        case .showSheet(let sheet):
+            presentSheet(sheet)
+        case .showFullScreenCover(let cover):
+            presentFullScreenCover(cover)
         case .none: break
         }
     }
     
     @ViewBuilder
-    func build(_ screen: Screen) -> some View {
+    func build(_ screen: ShowcaseScreen) -> some View {
         switch screen {
         case .menu(let menuType):
             ShowcaseMenu(viewModel: ShowcaseMenuViewModel(menuType: menuType))
@@ -34,35 +28,35 @@ class MobileShowcaseAppCoordinator: AppCoordinatorProtocol {
             ShowcaseDemoViewFactory().build(for: demoType)
         }
     }
-    
+
     @ViewBuilder
-    func build(_ sheet: Sheet) -> some View {
+    func buildSheet(_ sheet: ShowcaseSheet) -> some View {
         switch sheet {
         case .none:
-            EmptyView()
+            Text("Menu Sheet - None")
         }
     }
-    
+
     @ViewBuilder
-    func build(_ fullScreenCover: FullScreenCover) -> some View {
+    func buildFullScreenCover(_ fullScreenCover: ShowcaseFullScreenCover) -> some View {
         switch fullScreenCover {
         case .none:
-            EmptyView()
+            Text("Full Screen Cover - None")
         }
     }
 }
 
 private
 extension MobileShowcaseAppCoordinator {
-    func push(_ screen: Screen) {
+    func push(_ screen: ShowcaseScreen) {
         path.append(screen)
     }
     
-    func presentSheet(_ sheet: Sheet) {
+    func presentSheet(_ sheet: ShowcaseScreen) {
         self.sheet = sheet
     }
     
-    func presentFullScreenCover(_ fullScreenCover: FullScreenCover) {
+    func presentFullScreenCover(_ fullScreenCover: ShowcaseScreen) {
         self.fullScreenCover = fullScreenCover
     }
     
